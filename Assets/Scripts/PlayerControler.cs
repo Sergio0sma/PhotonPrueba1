@@ -13,7 +13,8 @@ public class PlayerControler : MonoBehaviourPun //Para elementos que queremos si
     void Start()
     {
         rd= GetComponent<Rigidbody2D>();
-        if( photonView.IsMine)
+        sr = GetComponent<SpriteRenderer>();
+        if ( photonView.IsMine)
         {
             Cambiarcolor();
         }

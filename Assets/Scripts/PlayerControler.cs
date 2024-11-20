@@ -8,10 +8,15 @@ public class PlayerControler : MonoBehaviourPun //Para elementos que queremos si
     //atributos
     public float velocidad = 10f;
     private Rigidbody2D rd ;
+    private SpriteRenderer sr;
     // Start is called before the first frame update
     void Start()
     {
         rd= GetComponent<Rigidbody2D>();
+        if( photonView.IsMine)
+        {
+            Cambiarcolor();
+        }
     }
 
     // Update is called once per frame
@@ -19,6 +24,7 @@ public class PlayerControler : MonoBehaviourPun //Para elementos que queremos si
     {
         if (photonView.IsMine)
         {
+
             float movX = Input.GetAxis("Horizontal");
             float movY = Input.GetAxis("Vertical");
 
@@ -26,6 +32,11 @@ public class PlayerControler : MonoBehaviourPun //Para elementos que queremos si
         }    
     }
 
+    private void Cambiarcolor()
+    {
+        Color randomColor=new Color(Random.value, Random.value, Random.value);
+        sr.color = randomColor;
 
+    }
 
 }
